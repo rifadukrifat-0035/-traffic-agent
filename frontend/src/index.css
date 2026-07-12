@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  * {
+    @apply box-border;
+  }
+
+  html,
+  body,
+  #root {
+    @apply min-h-screen;
+  }
+
+  body {
+    @apply m-0 bg-abyss text-slate-100 font-body antialiased;
+    background-image:
+      radial-gradient(circle at 14% 12%, rgba(0, 243, 255, 0.12), transparent 36%),
+      radial-gradient(circle at 82% 84%, rgba(189, 0, 255, 0.14), transparent 38%),
+      linear-gradient(160deg, #090b10 0%, #03040a 58%, #020208 100%);
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    background: linear-gradient(
+      160deg,
+      rgba(14, 18, 30, 0.68) 0%,
+      rgba(10, 14, 26, 0.53) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 20px 60px rgba(0, 0, 0, 0.36),
+      0 0 0 1px rgba(0, 243, 255, 0.07);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .glass-input {
+    @apply w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-slate-100 outline-none transition duration-300 placeholder:text-slate-400;
+  }
+
+  .glass-input:focus {
+    border-color: rgba(0, 243, 255, 0.7);
+    box-shadow:
+      0 0 0 3px rgba(0, 243, 255, 0.16),
+      0 0 24px rgba(0, 243, 255, 0.22);
+  }
+
+  .neon-border {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .neon-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(130deg, rgba(0, 243, 255, 0.65), rgba(189, 0, 255, 0.5));
+    opacity: 0.35;
+    pointer-events: none;
+  }
+}
